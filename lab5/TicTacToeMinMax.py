@@ -1,9 +1,7 @@
 import copy
 import math
 
-iBoard=[['X','_','_'],
-        ['X','O','O'],
-        ['_','_','_']]
+iBoard=[['X','_','_'],['X','O','O'],['_','_','_']]
 
 def display(board):
     for i in range(0,3):
@@ -24,7 +22,6 @@ def checkWin(b):
         if(b[row][0]==b[row][1] and b[row][0]==b[row][2]):
             if b[row][0]=='X': return 1
             elif b[row][0]=='O': return -1
-     
     for col in range(0,3):
         if b[0][col]==b[1][col] and b[0][col]==b[2][col]:
             if b[0][col]=='X': return 1
@@ -39,12 +36,9 @@ def checkWin(b):
             return -1
     return 0
 
-checkWin([['X','_','_'],
-            ['X','O','O'],
-            ['_','_','X']])
+checkWin([['X','_','_'],['X','O','O'],['_','_','X']])
 
 emptyboard=[['_'for _ in range(3)] for _ in range(3)]
-
 memory={}
 
 def newnode(node,x,y):
@@ -91,10 +85,7 @@ def bestPath(board,turn):
 
 print("Displaying board of initial state:- ")
 display(iBoard)
-print()
 print("MinMax score:- ",minmax(iBoard,True))
-print()
 minmax(emptyboard,True)
-print()
 bestPath(emptyboard,True)
     
